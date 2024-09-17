@@ -1,0 +1,59 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import linalg
+
+#1
+flight_number = int(input("Enter flight number: "))
+departure_station = input("Enter departure station: ")
+arrival_station = input("Enter arrival station: ")
+departure_time = int(input("Enter departure time: "))
+available_seats = int(input("Enter available seats:"))
+flight_schedule = np.array([flight_number,departure_station,arrival_station,departure_time,available_seats])
+
+
+#2
+passenger_id = int(input("Enter passenger id: "))
+passenger_name = input("Enter passenger name: ")
+flight = int(input("Enter reserved flight number: "))
+seat_no = input("Enter reserved seat: ")
+reservation = np.array([flight, seat_no])
+passenger_records = np.array([passenger_id,passenger_name,reservation])
+
+
+#3
+def flight(id):
+    for i in passenger_records:
+        if i == id:
+            return passenger_records[2]
+
+        print("No such passenger found")
+            
+            
+reservation = flight(3)
+print("\nFlight reservations made by the given passenger is: ")
+print(reservation)
+
+
+
+#4
+def availability(number,seats):
+    for number in flight_schedule:
+        flight_schedule[4] = seats
+        
+    return flight_schedule
+seats = int(input("Enter updated available seats: "))    
+flight_sch = availability(1,seats)
+print(flight_sch)
+
+
+
+#6
+def full_flight(flight_schedule):
+    for i in flight_schedule:
+        if(flight_schedule[4]==0):
+            print(flight_schedule)
+        
+        else:
+            continue
+            
+full_flight(flight_schedule)
